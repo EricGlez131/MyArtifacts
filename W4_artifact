@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Five Human Factors of Big-Box Club Shoppers</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f6f9;
+      color: #222;
+    }
+
+    header {
+      background: #1f3a5f;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 2rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: #1f3a5f;
+    }
+
+    footer {
+      background: #1f3a5f;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 3rem;
+      font-size: 0.9rem;
+    }
+
+    .highlight {
+      background: #ffffff;
+      border-left: 6px solid #1f3a5f;
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin-top: 2rem;
+    }
+
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Five Human Factors of Big-Box Club Store Shoppers</h1>
+  <p>Using Mode 3: Know People – 3.4 Five Human Factors Method</p>
+  <p><strong>Eric Gonzalez</strong> | ACMP/CSCI 4260 – UX Design</p>
+</header>
+
+<section>
+  <h2>Method Overview</h2>
+  <div class="highlight">
+    <p>The Five Human Factors method analyzes users through five lenses: Physical, Cognitive, Social, Cultural, and Emotional. This approach reveals deeper motivations, constraints, and behaviors beyond demographics, helping designers understand real human needs.</p>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Physical</h3>
+      <ul>
