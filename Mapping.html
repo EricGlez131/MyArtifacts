@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>UNO Parking Dashboard Prototype</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background-color: #f4f6f8;
+    }
+
+    header {
+        background-color: #990000;
+        color: white;
+        padding: 15px;
+        text-align: center;
+        font-size: 24px;
+    }
+
+    .container {
+        display: flex;
+        height: 90vh;
+    }
+
+    .map {
+        flex: 2;
+        background-color: #e6e6e6;
+        display: flex;
+        flex-wrap: wrap;
+        padding: 20px;
+        gap: 20px;
+        justify-content: center;
+        align-content: center;
+    }
+
+    .lot {
+        width: 120px;
+        height: 120px;
+        background-color: #cc0000;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        border-radius: 10px;
+        font-weight: bold;
+        transition: transform 0.2s;
+    }
+
+    .lot:hover {
+        transform: scale(1.1);
+    }
+
+    .info-panel {
+        flex: 1;
+        background-color: white;
+        padding: 20px;
+        border-left: 2px solid #ccc;
+    }
+
+    button {
+        background-color: #990000;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        cursor: pointer;
+        margin-top: 10px;
+        border-radius: 5px;
+    }
+
+    button:hover {
+        opacity: 0.9;
+    }
+
+    .confirmation {
+        margin-top: 15px;
+        color: green;
+        font-weight: bold;
+    }
+</style>
+</head>
+
+<body>
+
+<header>
+    Interactive Parking Dashboard (Prototype)
+</header>
+
+<div class="container">
+
+    <div class="map">
+        <div class="lot" onclick="selectLot('Lot A', '$150 per semester')">Lot A</div>
+        <div class="lot" onclick="selectLot('Lot B', '$200 per semester')">Lot B</div>
+        <div class="lot" onclick="selectLot('Lot C', '$75 per month')">Lot C</div>
+        <div class="lot" onclick="selectLot('Visitor Lot', '$5 per day')">Visitor</div>
+    </div>
+
+    <div class="info-panel">
+        <h2>Lot Information</h2>
+        <p id="lotName">Select a parking lot on the map.</p>
+        <p id="lotPrice"></p>
+        <button id="purchaseBtn" style="display:none;" onclick="purchase()">Purchase Permit</button>
+        <div id="confirmation" class="confirmation"></div>
+    </div>
+
+</div>
+
+<script>
+    function selectLot(name, price) {
+        document.getElementById("lotName").innerText = name;
+        document.getElementById("lotPrice").innerText = "Permit Cost: " + price;
+        document.getElementById("purchaseBtn").style.display = "inline-block";
+        document.getElementById("confirmation").innerText = "";
+    }
+
+    function purchase() {
+        document.getElementById("confirmation").innerText = 
+            "Purchase Successful! Confirmation email sent.";
+    }
+</script>
+
+</body>
+</html>
