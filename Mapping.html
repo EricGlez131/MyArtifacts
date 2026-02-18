@@ -1,124 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>UNO Parking Dashboard Prototype</title>
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        background-color: #f4f6f8;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MavPark Dashboard Prototype</title>
+    <style>
+        body { font-family: sans-serif; margin: 0; background-color: #f4f4f4; color: #333; }
+        
+        /* Global Navigation */
+        nav { background: #333; color: white; padding: 1rem; display: flex; justify-content: space-between; align-items: center; }
+        nav a { color: white; text-decoration: none; margin-left: 15px; }
 
-    header {
-        background-color: #990000;
-        color: white;
-        padding: 15px;
-        text-align: center;
-        font-size: 24px;
-    }
+        /* Dashboard Container */
+        .container { max-width: 1000px; margin: 40px auto; padding: 20px; }
+        header { margin-bottom: 30px; text-align: center; }
 
-    .container {
-        display: flex;
-        height: 90vh;
-    }
-
-    .map {
-        flex: 2;
-        background-color: #e6e6e6;
-        display: flex;
-        flex-wrap: wrap;
-        padding: 20px;
-        gap: 20px;
-        justify-content: center;
-        align-content: center;
-    }
-
-    .lot {
-        width: 120px;
-        height: 120px;
-        background-color: #cc0000;
-        color: white;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-        border-radius: 10px;
-        font-weight: bold;
-        transition: transform 0.2s;
-    }
-
-    .lot:hover {
-        transform: scale(1.1);
-    }
-
-    .info-panel {
-        flex: 1;
-        background-color: white;
-        padding: 20px;
-        border-left: 2px solid #ccc;
-    }
-
-    button {
-        background-color: #990000;
-        color: white;
-        border: none;
-        padding: 10px 15px;
-        cursor: pointer;
-        margin-top: 10px;
-        border-radius: 5px;
-    }
-
-    button:hover {
-        opacity: 0.9;
-    }
-
-    .confirmation {
-        margin-top: 15px;
-        color: green;
-        font-weight: bold;
-    }
-</style>
+        /* Action Grid */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+        
+        /* Skeleton Cards */
+        .card { 
+            background: white; 
+            border: 2px solid #ddd; 
+            padding: 20px; 
+            text-align: center; 
+            border-radius: 8px;
+            transition: transform 0.2s;
+        }
+        .card:hover { transform: translateY(-5px); border-color: #007bff; }
+        .card h3 { margin-top: 0; }
+        .card button { 
+            background: #007bff; color: white; border: none; 
+            padding: 10px 15px; border-radius: 4px; cursor: pointer; 
+        }
+        .citation-card { border-top: 5px solid #dc3545; } /* Highlight for citations */
+    </style>
 </head>
-
 <body>
 
-<header>
-    Interactive Parking Dashboard (Prototype)
-</header>
+    <nav>
+        <strong>MavPark</strong>
+        <div>
+            <a href="#">Home</a>
+            <a href="#">About Parking</a>
+            <a href="#">Contact & Support</a>
+        </div>
+    </nav>
 
-<div class="container">
+    <div class="container">
+        <header>
+            <h1>Park Dashboard</h1> <p>Welcome back! Select a task to manage your parking profile.</p>
+        </header>
 
-    <div class="map">
-        <div class="lot" onclick="selectLot('Lot A', '$150 per semester')">Lot A</div>
-        <div class="lot" onclick="selectLot('Lot B', '$200 per semester')">Lot B</div>
-        <div class="lot" onclick="selectLot('Lot C', '$75 per month')">Lot C</div>
-        <div class="lot" onclick="selectLot('Visitor Lot', '$5 per day')">Visitor</div>
+        <div class="grid">
+            
+            <div class="card citation-card">
+                <h3>Citation</h3>
+                <p>View or pay outstanding citations.</p>
+                <button onclick="alert('Proceeding to Citation Checkout...')">Manage Citations</button>
+            </div>
+
+            <div class="card">
+                <h3>Purchase Permit</h3>
+                <p>Buy new permits for your vehicles.</p>
+                <button onclick="alert('Opening Permit Options...')">Buy Permit</button>
+            </div>
+
+            <div class="card">
+                <h3>See Permits</h3>
+                <p>View your active profile permits.</p>
+                <button onclick="alert('Viewing Permits for Profile...')">View My Permits</button>
+            </div>
+
+            <div class="card">
+                <h3>Add Vehicle</h3>
+                <p>Register a new vehicle to your account.</p>
+                <button onclick="alert('Showing Vehicles in Profile...')">Add Vehicle</button>
+            </div>
+
+        </div>
     </div>
-
-    <div class="info-panel">
-        <h2>Lot Information</h2>
-        <p id="lotName">Select a parking lot on the map.</p>
-        <p id="lotPrice"></p>
-        <button id="purchaseBtn" style="display:none;" onclick="purchase()">Purchase Permit</button>
-        <div id="confirmation" class="confirmation"></div>
-    </div>
-
-</div>
-
-<script>
-    function selectLot(name, price) {
-        document.getElementById("lotName").innerText = name;
-        document.getElementById("lotPrice").innerText = "Permit Cost: " + price;
-        document.getElementById("purchaseBtn").style.display = "inline-block";
-        document.getElementById("confirmation").innerText = "";
-    }
-
-    function purchase() {
-        document.getElementById("confirmation").innerText = 
-            "Purchase Successful! Confirmation email sent.";
-    }
-</script>
 
 </body>
 </html>
